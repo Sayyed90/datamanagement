@@ -1,0 +1,284 @@
+{
+	"info": {
+		"_postman_id": "ae202420-7140-4dec-8b0c-996dc1e2fcae",
+		"name": "librarymanagementsystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30439327"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "http://localhost:8005/home/login?email=syed@gmail.com&password=abc111",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/home/login?email=syed@gmail.com&password=abc111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"home",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "syed@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "abc111"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8005/home/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"syed@gmail.com\",\r\n    \"password\":\"abc111\",\r\n    \"name\":\"Syed\",\r\n    \"age\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8005/home/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"home",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "book",
+			"item": [
+				{
+					"name": "http://localhost:8005/book/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0Nzk2NiwiZXhwIjoxNzIyODY1OTY2fQ.m35SUUyoLynCn0BVH1XRm5r7gdHv8_DM-PR8gDNwuBUVHiPVdVCDGDxGR70coF1YJfRzGGTyptcaZQJwEU14Cw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/book/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"book",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8005/book/add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0Nzk2NiwiZXhwIjoxNzIyODY1OTY2fQ.m35SUUyoLynCn0BVH1XRm5r7gdHv8_DM-PR8gDNwuBUVHiPVdVCDGDxGR70coF1YJfRzGGTyptcaZQJwEU14Cw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isbnNumber\":\"abc1233\",\r\n    \"author\":\"myself\",\r\n    \"title\":\"harry putter\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8005/book/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"book",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8005/book/all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0Nzk2NiwiZXhwIjoxNzIyODY1OTY2fQ.m35SUUyoLynCn0BVH1XRm5r7gdHv8_DM-PR8gDNwuBUVHiPVdVCDGDxGR70coF1YJfRzGGTyptcaZQJwEU14Cw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/book/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"book",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "borrow",
+			"item": [
+				{
+					"name": "http://localhost:8005/borrow/save",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0ODY3MCwiZXhwIjoxNzIyODY2NjcwfQ.CX9MPwqux29Gr3fx49j9fUt42kG01lrJZBsv-_t3hBAkPFrwPgbRvu3QsrG-7Z0Oqc_iADglbDDkZLa9PQgdYw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"book_Id\":100,\r\n   \"user_Id\":200 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8005/borrow/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"borrow",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8005/borrow/return/100",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0ODg5NywiZXhwIjoxNzIyODY2ODk3fQ.ttTMfT2dZiyjssAjNX8o_obnIR9f2BDScXI_Jl7ZtNA3RoQJCvnV7pJbbXLDwgRM2YTr_pjK0frhnZTcA9ftDg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/borrow/return/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"borrow",
+								"return",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8005/borrow/delete/100",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0ODg5NywiZXhwIjoxNzIyODY2ODk3fQ.ttTMfT2dZiyjssAjNX8o_obnIR9f2BDScXI_Jl7ZtNA3RoQJCvnV7pJbbXLDwgRM2YTr_pjK0frhnZTcA9ftDg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/borrow/delete/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"borrow",
+								"delete",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

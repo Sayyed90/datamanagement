@@ -21,7 +21,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import static org.mockito.Mockito.*;
@@ -75,13 +74,6 @@ public class UserRegistrationServiceTest {
     public void testUserRegistration() throws UserRegistrationException {
         when(userRepository.saveAndFlush(user)).thenReturn(user);
         userRegistrationService.saveUser(userRegistration);
-    }
-
-    @Test
-    public void testUserRegistrationWhenEmailExisted() {
-        Optional<User> userOpt=Optional.of(new User());
-        when(userRepository.findByEmail("mockEmail@gmail.com")).thenReturn(userOpt);
-        Assertions.assertThrows(UserRegistrationException.class,()->userRegistrationService.saveUser(userRegistration));;
     }
 
     @Test

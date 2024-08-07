@@ -11,16 +11,29 @@
 			"item": [
 				{
 					"name": "http://localhost:8005/home/login?email=syed@gmail.com&password=abc111",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonResponse = pm.response.json();\r",
+									"pm.globals.set(\"bearer-token\", jsonResponse.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8005/home/login?email=syed@gmail.com&password=abc111",
+							"raw": "http://{{ip_address}}:8080/home/login?email=syed@gmail.com&password=abc111",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{ip_address}}"
 							],
-							"port": "8005",
+							"port": "8080",
 							"path": [
 								"home",
 								"login"
@@ -54,12 +67,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8005/home/register",
+							"raw": "http://{{ip_address}}:8080/home/register",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{ip_address}}"
 							],
-							"port": "8005",
+							"port": "8080",
 							"path": [
 								"home",
 								"register"
@@ -81,7 +94,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0Nzk2NiwiZXhwIjoxNzIyODY1OTY2fQ.m35SUUyoLynCn0BVH1XRm5r7gdHv8_DM-PR8gDNwuBUVHiPVdVCDGDxGR70coF1YJfRzGGTyptcaZQJwEU14Cw",
+									"value": "{{bearer-token}}",
 									"type": "string"
 								}
 							]
@@ -89,12 +102,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8005/book/1",
+							"raw": "http://{{ip_address}}:8080/book/1",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{ip_address}}"
 							],
-							"port": "8005",
+							"port": "8080",
 							"path": [
 								"book",
 								"1"
@@ -111,7 +124,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0Nzk2NiwiZXhwIjoxNzIyODY1OTY2fQ.m35SUUyoLynCn0BVH1XRm5r7gdHv8_DM-PR8gDNwuBUVHiPVdVCDGDxGR70coF1YJfRzGGTyptcaZQJwEU14Cw",
+									"value": "{{bearer-token}}",
 									"type": "string"
 								}
 							]
@@ -128,12 +141,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8005/book/add",
+							"raw": "http://{{ip_address}}:8080/book/add",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{ip_address}}"
 							],
-							"port": "8005",
+							"port": "8080",
 							"path": [
 								"book",
 								"add"
@@ -150,7 +163,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0Nzk2NiwiZXhwIjoxNzIyODY1OTY2fQ.m35SUUyoLynCn0BVH1XRm5r7gdHv8_DM-PR8gDNwuBUVHiPVdVCDGDxGR70coF1YJfRzGGTyptcaZQJwEU14Cw",
+									"value": "{{bearer-token}}",
 									"type": "string"
 								}
 							]
@@ -158,12 +171,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8005/book/all",
+							"raw": "http://{{ip_address}}:8080/book/all",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{ip_address}}"
 							],
-							"port": "8005",
+							"port": "8080",
 							"path": [
 								"book",
 								"all"
@@ -185,7 +198,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0ODY3MCwiZXhwIjoxNzIyODY2NjcwfQ.CX9MPwqux29Gr3fx49j9fUt42kG01lrJZBsv-_t3hBAkPFrwPgbRvu3QsrG-7Z0Oqc_iADglbDDkZLa9PQgdYw",
+									"value": "{{bearer-token}}",
 									"type": "string"
 								}
 							]
@@ -202,12 +215,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8005/borrow/save",
+							"raw": "http://{{ip_address}}:8080/borrow/save",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{ip_address}}"
 							],
-							"port": "8005",
+							"port": "8080",
 							"path": [
 								"borrow",
 								"save"
@@ -224,7 +237,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0ODg5NywiZXhwIjoxNzIyODY2ODk3fQ.ttTMfT2dZiyjssAjNX8o_obnIR9f2BDScXI_Jl7ZtNA3RoQJCvnV7pJbbXLDwgRM2YTr_pjK0frhnZTcA9ftDg",
+									"value": "{{bearer-token}}",
 									"type": "string"
 								}
 							]
@@ -232,12 +245,12 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8005/borrow/return/100",
+							"raw": "http://{{ip_address}}:8080/borrow/return/100",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{ip_address}}"
 							],
-							"port": "8005",
+							"port": "8080",
 							"path": [
 								"borrow",
 								"return",
@@ -255,7 +268,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzUxMiJ9.eyJwYXNzd29yZCI6IiQyYSQxMCRldEZGSXlEcjN1ZExvZ1Nyc25aR1llVXIyR0puci5hbHQ5VzU3RmJPMThWbHFwU2E0QjJjLiIsImVtYWlsIjoic3llZEBnbWFpbC5jb20iLCJzdWIiOiJzeWVkQGdtYWlsLmNvbSIsImlhdCI6MTcyMjg0ODg5NywiZXhwIjoxNzIyODY2ODk3fQ.ttTMfT2dZiyjssAjNX8o_obnIR9f2BDScXI_Jl7ZtNA3RoQJCvnV7pJbbXLDwgRM2YTr_pjK0frhnZTcA9ftDg",
+									"value": "{{bearer-token}}",
 									"type": "string"
 								}
 							]
@@ -263,12 +276,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8005/borrow/delete/100",
+							"raw": "http://{{ip_address}}:8080/borrow/delete/100",
 							"protocol": "http",
 							"host": [
-								"localhost"
+								"{{ip_address}}"
 							],
-							"port": "8005",
+							"port": "8080",
 							"path": [
 								"borrow",
 								"delete",

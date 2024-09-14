@@ -34,3 +34,10 @@ API Access:
 6. user add data of borrower into system using API "/borrow/add". Book_id, and user_id is passed as mandatory fields
 7. user update borrower and book returned details using API "/borrow/return/{book_id}". Book_id is used as unique attribute to retrieve the book and update
 8. user delete the borrower details by book_id using API "/borrow/delete/{id}"
+
+step to run in docker
+
+1) mvn clean install
+2) once mvn successfully installed, open cmd from the root folder where compose.yml is there
+3) type "docker compose up"
+4) docker will successfully run

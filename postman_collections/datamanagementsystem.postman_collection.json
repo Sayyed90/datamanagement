@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "ae202420-7140-4dec-8b0c-996dc1e2fcae",
+		"name": "datamanagementsystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30439327"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "http://localhost:8005/home/login?email=syed@gmail.com&password=abc111",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonResponse = pm.response.json();\r",
+									"pm.globals.set(\"bearer-token\", jsonResponse.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:8080/home/login?email=syed@gmail.com&password=abc111",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "8080",
+							"path": [
+								"home",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "syed@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "abc111"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8005/home/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"syed@gmail.com\",\r\n    \"password\":\"abc111\",\r\n    \"name\":\"Syed\",\r\n    \"age\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip_address}}:8080/home/register",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "8080",
+							"path": [
+								"home",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "data",
+			"item": [
+				{
+					"name": "saveToDB",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"accountNumber\":\"111\",\r\n    \"trxAmmount\":10.00,\r\n    \"description\":\"FT\",\r\n    \"trxDate\":\"2023-09-02\",\r\n    \"time\":\"11:11:11\",\r\n    \"customerId\":\"8872838283\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip_address}}:8080/data/add",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "8080",
+							"path": [
+								"data",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:8080/data/all?pageNo=0&pageSize=18",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "8080",
+							"path": [
+								"data",
+								"all"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBycustID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:8080/data/retrieve/csId/222?pageNo=0&pageSize=18",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "8080",
+							"path": [
+								"data",
+								"retrieve",
+								"csId",
+								"222"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byAccNumber",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:8080/data/retrieve/accNum/8872838299?pageNo=0&pageSize=18",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "8080",
+							"path": [
+								"data",
+								"retrieve",
+								"accNum",
+								"8872838299"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "byDesc",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:8080/data/retrieve/desc/BILL PAYMENT?pageNo=0&pageSize=18",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "8080",
+							"path": [
+								"data",
+								"retrieve",
+								"desc",
+								"BILL PAYMENT"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"accountNumber\":\"111\",\r\n    \"trxAmmount\":10.00,\r\n    \"description\":\"FT-Z\",\r\n    \"trxDate\":\"2023-09-02\",\r\n    \"time\":\"11:11:11\",\r\n    \"customerId\":\"8872838283\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip_address}}:8080/data/update/1",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "8080",
+							"path": [
+								"data",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:8080/data/delete/{1}",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "8080",
+							"path": [
+								"data",
+								"delete",
+								"{1}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

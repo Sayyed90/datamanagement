@@ -16,25 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user_seq`
+-- Table structure for table `batch_job_execution_seq`
 --
 
-DROP TABLE IF EXISTS `user_seq`;
+DROP TABLE IF EXISTS `batch_job_execution_seq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_seq` (
-  `next_val` bigint DEFAULT NULL
+CREATE TABLE `batch_job_execution_seq` (
+  `ID` bigint NOT NULL,
+  `UNIQUE_KEY` char(1) NOT NULL,
+  UNIQUE KEY `UNIQUE_KEY_UN` (`UNIQUE_KEY`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_seq`
+-- Dumping data for table `batch_job_execution_seq`
 --
 
-LOCK TABLES `user_seq` WRITE;
-/*!40000 ALTER TABLE `user_seq` DISABLE KEYS */;
-INSERT INTO `user_seq` VALUES (51);
-/*!40000 ALTER TABLE `user_seq` ENABLE KEYS */;
+LOCK TABLES `batch_job_execution_seq` WRITE;
+/*!40000 ALTER TABLE `batch_job_execution_seq` DISABLE KEYS */;
+INSERT INTO `batch_job_execution_seq` VALUES (11,'0');
+/*!40000 ALTER TABLE `batch_job_execution_seq` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -46,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-15  4:40:04
+-- Dump completed on 2024-09-15  4:40:03

@@ -8,13 +8,17 @@ import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient } from "@angular/commo
 import { FormsModule } from "@angular/forms";
 import { AuthInterceptor } from "./auth.interceptor";
 import { DataService } from "./data.service";
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { NgxPaginationModule } from 'ngx-pagination'
 
 @NgModule({
     
     imports:[
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        MatPaginatorModule,
+        NgxPaginationModule,
     ],
     providers:[{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},DataService]
 })

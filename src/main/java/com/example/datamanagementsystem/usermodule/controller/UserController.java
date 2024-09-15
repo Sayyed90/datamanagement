@@ -46,7 +46,7 @@ public class UserController {
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "500", content = { @Content(schema = @Schema()) }) })
     @PostMapping(CommonConstants.USER_REGISTER)
-    public ResponseEntity<String> registerUser(@RequestBody UserRegistration registration) throws EmailFormatException, UserRegistrationException, DataSourceException {
+    public ResponseEntity<Boolean> registerUser(@RequestBody UserRegistration registration) throws EmailFormatException, UserRegistrationException, DataSourceException {
         InputValidator.validateInput(registration);
         if(!InputValidator.validateEmailPattern(registration.getEmail())){
             logger.error("error occured while validating email pattern");
@@ -55,7 +55,7 @@ public class UserController {
         userRegistrationService.saveUser(registration);
         logger.debug("successfully saved user!!");
 
-        return new ResponseEntity<>("success", HttpStatusCode.valueOf(200));
+        return new ResponseEntity<>(true, HttpStatusCode.valueOf(200));
     }
 
     /**

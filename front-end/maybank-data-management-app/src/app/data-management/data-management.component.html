@@ -1,5 +1,5 @@
 <h2>Data Details</h2>
-<table class="table table-striped">
+<table class="table table-striped" >
     <thead>
         <tr>
             <th>
@@ -50,10 +50,26 @@
                 
                 <td id="customerId${i}">{{data.customerId}}</td>
             
-                <td><button id="{{i}}" name="edit" class="btn btn-light" (click)="editButtonTrigger(data.id,i)">edit</button></td>
+                <td><button id="{{i}}" name="edit" class="btn btn-light" (click)="editData(i)">edit</button></td>
                 <td><button name="delete" class="btn btn-light" (click)="deleteById(data.id,i)">delete</button></td>
                 <td><button id="submit" name="submit" class="btn btn-light invisible" >submit</button></td>
         </tr>
     </tbody>
 </table>
-<button (click)="logout()">Logout</button>
+<!-- <app-pagination
+  [currentPage]="currentPage"
+  [itemsPerPage]="itemsPerPage"
+  [totalItems]="totalItems"
+  (pageChanged)="onPageChange($event)"
+></app-pagination> -->
+<div class="pagination">
+    <button class="btn btn-primary me-md-2" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="btn btn-primary" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+</div>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button (click)="logout()" class="btn btn-primary me-md-2">Logout</button>
+    <button (click)="searchBy()" class="btn btn-primary">Search</button>
+</div>
+

@@ -24,6 +24,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.CompletableFuture;
+@CrossOrigin(origins = "${angularURL}")
 @Tag(name = "UserController", description = "User management APIS")
 @RestController
 @RequestMapping(CommonConstants.USER_MAINPAGE)

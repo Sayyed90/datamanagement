@@ -20,7 +20,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin(origins = "${angularURL}")
 @Tag(name = "Data controller", description = "Data Management APIS")
 @RestController
 @RequestMapping(CommonConstants.DATA)

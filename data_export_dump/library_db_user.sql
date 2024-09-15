@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
--- Host: localhost    Database: library_db
+-- Host: 127.0.0.1    Database: library_db
 -- ------------------------------------------------------
 -- Server version	8.0.39
 
@@ -23,8 +23,8 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
-  `id` bigint NOT NULL,
   `age` int NOT NULL,
+  `id` bigint NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (202,11,'yed@gmail.com','Sayed','$2a$10$90sdlG6YU1KEu1E/MPT6FOshVf8h8deIsGxeGafl6HdajNmtWxSku'),(302,11,'yed2@gmail.com','Sayed','$2a$10$YPsjwTvKs/I1g.0b5icjqeRaWEvpK/VXJoDT6FHxwUv//oavTozw2');
+INSERT INTO `user` VALUES (10,1,'syed@gmail.com','Syed','$2a$10$f2xBt4or.bI76HA9uZ7Zau7dlPlMAo6m/yYmNeftU/TnIp3kDphRK');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-03  1:51:35
+-- Dump completed on 2024-09-15  4:40:04

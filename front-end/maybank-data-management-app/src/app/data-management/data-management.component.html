@@ -1,0 +1,59 @@
+<h2>Data Details</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                ACCOUNT NUMBER
+            </th>
+            <th>
+                AMOUNT
+            </th>
+            <th>
+                DESCRIPTION
+            </th>
+            <th>
+                DATE
+            </th>
+            <th>
+                TIME
+            </th>
+            <th>
+                CUSTOMER_ID
+            </th>
+            <th>
+                EDIT
+            </th>
+            <th>
+                DELETE
+            </th>
+            <th>
+                ACTION
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let data of datas.content;let i=index;" >
+                <td id="id{{i}}">{{data.id}}</td>
+                
+                <td id="accountNumber{{i}}">{{data.accountNumber}}</td>
+                
+                <td id="trxAmmount{{i}}">{{data.trxAmmount}}</td>
+                
+                <td id="description{{i}}">{{data.description}}</td>
+                
+                <td id="trxDate{{i}}">{{data.trxDate}}</td>
+                
+                <td id="time{{i}}">{{data.time}}</td>
+                
+                <td id="customerId${i}">{{data.customerId}}</td>
+            
+                <td><button id="{{i}}" name="edit" class="btn btn-light" (click)="editButtonTrigger(data.id,i)">edit</button></td>
+                <td><button name="delete" class="btn btn-light" (click)="deleteById(data.id,i)">delete</button></td>
+                <td><button id="submit" name="submit" class="btn btn-light invisible" >submit</button></td>
+        </tr>
+    </tbody>
+</table>
+<button (click)="logout()">Logout</button>

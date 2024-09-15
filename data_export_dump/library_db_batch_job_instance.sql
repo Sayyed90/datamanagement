@@ -16,25 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user_seq`
+-- Table structure for table `batch_job_instance`
 --
 
-DROP TABLE IF EXISTS `user_seq`;
+DROP TABLE IF EXISTS `batch_job_instance`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_seq` (
-  `next_val` bigint DEFAULT NULL
+CREATE TABLE `batch_job_instance` (
+  `JOB_INSTANCE_ID` bigint NOT NULL,
+  `VERSION` bigint DEFAULT NULL,
+  `JOB_NAME` varchar(100) NOT NULL,
+  `JOB_KEY` varchar(32) NOT NULL,
+  PRIMARY KEY (`JOB_INSTANCE_ID`),
+  UNIQUE KEY `JOB_INST_UN` (`JOB_NAME`,`JOB_KEY`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_seq`
+-- Dumping data for table `batch_job_instance`
 --
 
-LOCK TABLES `user_seq` WRITE;
-/*!40000 ALTER TABLE `user_seq` DISABLE KEYS */;
-INSERT INTO `user_seq` VALUES (51);
-/*!40000 ALTER TABLE `user_seq` ENABLE KEYS */;
+LOCK TABLES `batch_job_instance` WRITE;
+/*!40000 ALTER TABLE `batch_job_instance` DISABLE KEYS */;
+INSERT INTO `batch_job_instance` VALUES (1,0,'datasource','775346374522e0c1794a34aa13085f4e'),(2,0,'datasource','110a9174cfb11d755bd970d4d233c4c6'),(3,0,'datasource','cfb9671a65bfbe3543bb5048695a7a39'),(4,0,'datasource','b6cd63f32c6c4b41042f112ec4254558'),(5,0,'datasource','682cb9afe583ca1f06bda9c4ee4bc592'),(6,0,'datasource','f5121d8e4f147b867c1c26ab90815031'),(7,0,'datasource','cd1e78c7a513d5174ab8c9e56a4064fa'),(8,0,'datasource','a06963fb4338fa3e127be3065a978815'),(9,0,'datasource','6299c7db7253e270b780095aa4831c65'),(10,0,'datasource','0fa0658938191b6f4010635ccc9c6e4d'),(11,0,'datasource','edaa9f9a26bc086a071fd1b66f30a15c');
+/*!40000 ALTER TABLE `batch_job_instance` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -46,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-15  4:40:04
+-- Dump completed on 2024-09-15  4:40:02

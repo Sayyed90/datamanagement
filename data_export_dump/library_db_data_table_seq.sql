@@ -16,25 +16,25 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user_seq`
+-- Table structure for table `data_table_seq`
 --
 
-DROP TABLE IF EXISTS `user_seq`;
+DROP TABLE IF EXISTS `data_table_seq`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_seq` (
+CREATE TABLE `data_table_seq` (
   `next_val` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_seq`
+-- Dumping data for table `data_table_seq`
 --
 
-LOCK TABLES `user_seq` WRITE;
-/*!40000 ALTER TABLE `user_seq` DISABLE KEYS */;
-INSERT INTO `user_seq` VALUES (51);
-/*!40000 ALTER TABLE `user_seq` ENABLE KEYS */;
+LOCK TABLES `data_table_seq` WRITE;
+/*!40000 ALTER TABLE `data_table_seq` DISABLE KEYS */;
+INSERT INTO `data_table_seq` VALUES (101);
+/*!40000 ALTER TABLE `data_table_seq` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

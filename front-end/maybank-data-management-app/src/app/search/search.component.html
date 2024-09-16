@@ -1,0 +1,124 @@
+
+<div class="signup-card">
+    <div class="card-title">
+        <h1>Please Select Search Mechanism</h1>
+     </div>
+    <form class="form-group row" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <input type="text" name="key" placeholder="Key" formControlName="key" class="text-center rounded-0 col-3 pr-0">
+        <select name="type" id="type" class="text-center rounded-0 col-3 px-0" formControlName="type">
+            <option value="custId" selected>Customer ID</option>
+            <option value="acctNum">Account Number</option>
+            <option value="desc">Description</option>
+        </select>
+        <input class="text-center rounded-0 col-3 px-0" type="submit" value="search">
+    </form>
+
+<div class="container">
+    <h2>Data Details</h2>
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                ACCOUNT NUMBER
+            </th>
+            <th>
+                AMOUNT
+            </th>
+            <th>
+                DESCRIPTION
+            </th>
+            <th>
+                DATE
+            </th>
+            <th>
+                TIME
+            </th>
+            <th>
+                CUSTOMER_ID
+            </th>
+            <th>
+                EDIT
+            </th>
+            <th>
+                DELETE
+            </th>
+            <th>
+                ACTION
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor ="let data of datas.content; let i=index;" ng-include="loadTemplate(data)" >
+                <td id="id{{i}}">{{data.id}}</td>
+                
+                <td id="accountNumber{{i}}">{{data.accountNumber}}</td>
+                
+                <td id="trxAmmount{{i}}">
+                    <div *ngIf="data.isEdit">
+                        <input type="text" [(ngModel)]="data.trxAmmount" class="form-control" (click)="onChange(i)" (change)="onChange(i)"/>
+                    </div>
+                    <div *ngIf="!data.isEdit">
+                        {{data.trxAmmount}}
+                    </div>
+                
+                </td>
+                
+                <td id="description{{i}}">
+                    <div *ngIf="data.isEdit">
+                        <input type="text" [(ngModel)]="data.description" class="form-control" (click)="onChange(i)" (change)="onChange(i)"/>
+                    </div>
+                    <div *ngIf="!data.isEdit">
+                        {{data.description}}
+                    </div>
+                </td>
+                
+                <td id="trxDate{{i}}">
+                    <div *ngIf="data.isEdit">
+                        <input type="text" [(ngModel)]="data.trxDate" class="form-control" (click)="onChange(i)" (change)="onChange(i)"/>
+                    </div>
+                    <div *ngIf="!data.isEdit">
+                        {{data.trxDate}}
+                    </div>
+                </td>
+                
+                <td id="time{{i}}">
+                    <div *ngIf="data.isEdit">
+                        <input type="text" [(ngModel)]="data.time" class="form-control" (click)="onChange(i)" (change)="onChange(i)"/>
+                    </div>
+                    <div *ngIf="!data.isEdit">
+                        {{data.time}}
+                    </div>
+                </td>
+                
+                <td id="customerId${i}">{{data.customerId}}</td>
+                <td>
+                
+                        <button id="{{i}}" name="edit" class="btn btn-light" (click)="onEdit(data)">edit</button>
+                
+                </td>
+                
+                <td><button name="delete" class="btn btn-light" (click)="deleteById(data.id,i)">delete</button></td>
+                <td>
+                   
+                    <button *ngIf="toDisplay && indx==i" id="submit{{i}}" name="submit{{i}}" class="btn btn-light" (click)="onSave(data)">submit</button>
+              
+                </td>  
+        </tr>
+    </tbody>
+</table>
+
+<div class="pagination">
+    <button class="btn btn-primary me-md-2" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="btn btn-primary" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+</div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button (click)="logout()" class="btn btn-primary me-md-2">Logout</button>
+</div>
+</div>
+</div>
+
+

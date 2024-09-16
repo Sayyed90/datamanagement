@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class DataSourceDto {
+    private Long id;
     private String accountNumber;
     private double trxAmmount;
     private String description;

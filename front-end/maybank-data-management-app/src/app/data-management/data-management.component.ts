@@ -1,19 +1,22 @@
-import { Component, EventEmitter, Inject, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Inject, inject, Input, NgModule, OnInit, Output, QueryList, ViewChild } from '@angular/core';
 import { Data, Pageable, Responses } from '../data';
-import { DOCUMENT, NgFor } from '@angular/common';
+import { DOCUMENT, NgFor, NgIf } from '@angular/common';
 import { DataService } from '../data.service';
 import { AuthService } from '../auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PaginationComponent } from "../pagination/pagination.component"; 
+import { FormsModule, NgModel } from '@angular/forms';
 @Component({
   selector: 'app-data-management',
   standalone: true,
-  imports: [NgFor, PaginationComponent],
+  imports: [NgFor, PaginationComponent,NgIf,FormsModule],
   templateUrl: './data-management.component.html',
   styleUrl: './data-management.component.css'
 })
 export class DataManagementComponent implements OnInit{
+  toDisplay=false;
+  indx=0;
   temp:Data[];
   paginatedData: Pageable;
   datas: Responses;
@@ -64,7 +67,7 @@ export class DataManagementComponent implements OnInit{
   deleteDataById(id:number,index:number) {
 
     this.dataService.deleteData(id).subscribe(data=>{
-      console.log(data);
+      alert("successfully deleted..");
       this.datas.content.splice(index,1);
       this.dataService.setContent(this.datas.content);
     })
@@ -83,10 +86,23 @@ export class DataManagementComponent implements OnInit{
       this.router.navigate(['/searchpage']);
       }
 
-      editData(index: number) {
-        this.temp =this.datas.content;
-        this.dataService.setSingleData(this.temp[index]);
-        this.router.navigate(['/editpage']);
-        }
+        onSave(data: Data) {
+         this.dataService.updateData(data).subscribe(data=>{
+          alert("successfully updated..");
+          this.toDisplay=false;
+          this.getDatas();
+         })
+          }
+          onEdit(data: any) {
+          data.isEdit=true;
+
+          }
+          onChange(index: number) {
+               this.toDisplay=true;
+               this.indx=index;
+
+            }
+
+          
 
 }

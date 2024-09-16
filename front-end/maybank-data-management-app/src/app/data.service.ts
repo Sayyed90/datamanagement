@@ -18,10 +18,10 @@ export class DataService {
     
   }
 
-  updateData(value: any, arg1: string): Observable<Boolean> {
+  updateData(dataSourceDto: any): Observable<Boolean> {
     const headers ={'Authorization':"Bearer "+this.getToken()}
   
-    return this.httpClient.put<Boolean>(this.baseURL+"/update/"+value.id,{value:value,headers:headers});
+    return this.httpClient.put<Boolean>(this.baseURL+"/update/"+dataSourceDto.id,dataSourceDto,{headers:headers});
   
   }
 

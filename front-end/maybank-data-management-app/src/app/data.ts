@@ -6,6 +6,7 @@ export class Data {
     trxDate: string;
     time: string;
     customerId: string;
+isEdit: boolean;
 }
 
 export class Responses{

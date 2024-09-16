@@ -5,7 +5,6 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { DataManagementComponent } from './data-management/data-management.component';
 import { authGuard } from './auth.guard';
 import { SearchComponent } from './search/search.component';
-import { ModifyDataComponent } from './modify-data/modify-data.component';
 
 export const routes: Routes = [
     {
@@ -24,9 +23,6 @@ export const routes: Routes = [
     {
         path: 'searchpage', component: SearchComponent
     },
-    {
-        path: 'editpage', component: ModifyDataComponent
-    }
 ];
 
 

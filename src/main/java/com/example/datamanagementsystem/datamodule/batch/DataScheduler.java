@@ -44,6 +44,7 @@ public class DataScheduler {
         try {
             JobExecution execution = future.get(10, TimeUnit.SECONDS);
             logger.info("job execution is done");
+            logger.info("execution status is:{}",execution.getStatus());
         } catch (TimeoutException e) {
             future.cancel(true);
             logger.error("Job execution timed out and was cancelled.");

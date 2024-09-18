@@ -53,7 +53,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
             userRepository.saveAndFlush(user);
         }else{
             logger.error("user email already exist in records!");
-            //throw new UserRegistrationException("Email already existed!");
+            throw new UserRegistrationException("Email already existed!");
         }
 
 

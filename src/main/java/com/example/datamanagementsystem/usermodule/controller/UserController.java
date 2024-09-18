@@ -39,7 +39,7 @@ public class UserController {
 
     @Operation(
             summary = "register new user into db",
-            description = "enrolling user into library",
+            description = "enrolling user into db",
             tags = { "User", "post" })
     @ApiResponses({
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(), mediaType = "application/json") }),
